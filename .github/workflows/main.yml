@@ -8,9 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: emerald-gear
     steps:
       - uses: actions/checkout@v4
 
@@ -19,14 +16,20 @@ jobs:
           distribution: temurin
           java-version: 17
 
+      - name: Find the project folder
+        id: proj
+        run: echo "dir=$(dirname "$(find . -name gradlew -not -path './.git/*' | head -n 1)")" >> "$GITHUB_OUTPUT"
+
       - name: Make gradlew executable
+        working-directory: ${{ steps.proj.outputs.dir }}
         run: chmod +x gradlew
 
       - name: Build
+        working-directory: ${{ steps.proj.outputs.dir }}
         run: ./gradlew build --no-daemon
 
       - name: Upload the mod jar
         uses: actions/upload-artifact@v4
         with:
           name: armor-overhaul
-          path: emerald-gear/build/libs/*.jar
+          path: "**/build/libs/*.jar"
