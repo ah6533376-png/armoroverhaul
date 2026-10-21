@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "E": {
+      "item": "minecraft:emerald"
+    }
+  },
+  "pattern": [
+    "EEE",
+    "E E"
+  ],
+  "result": {
+    "item": "emeraldgear:emerald_helmet"
+  }
+}

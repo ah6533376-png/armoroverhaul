@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "emeraldgear",
+  "version": "${version}",
+  "name": "Armor Overhaul",
+  "description": "Vanilla-style armor additions: emerald gear, a set bonus for every armor tier, craftable chainmail and a full turtle shell set.",
+  "authors": [
+    "Your Name Here"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/emeraldgear/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.emeraldgear.EmeraldGear"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.14.21",
+    "minecraft": "~1.20.1",
+    "java": ">=17",
+    "fabric-api": "*"
+  }
+}
